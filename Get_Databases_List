@@ -1,0 +1,6 @@
+SELECT d.datid AS database_id,
+       d.datname AS database_name,
+       u.usename AS createdby
+FROM pg_catalog.pg_database_info AS d
+  INNER JOIN pg_catalog.pg_user u ON u.usesysid = d.datdba
+ORDER BY d.datname
